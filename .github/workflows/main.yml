@@ -26,8 +26,8 @@ jobs:
         TOOT_CONFIG: ${{ secrets.TOOT_CONFIG }}
       run: |-
         mkdir -p ~/.config/toot
-        echo $TOOT_CONFI > ~/.config/toot/config.json
-        toot post "test post success" --visibility private> latest-toot.md
+        echo $TOOT_CONFIG > ~/.config/toot/config.json
+        toot post "test post success" > latest-toot.md
 #    - name: Configure Git for commits
 #      run: |-
 #        git config user.name "Automated"
