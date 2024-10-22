@@ -2,7 +2,7 @@ name: Select a Trope then post
 
 on:
   workflow_dispatch:
- # schedule:
+# schedule:
  # - cron: '15 * * * *'
 
 jobs:
@@ -13,28 +13,29 @@ jobs:
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
+
     - name: Configure Python with pip cache
       uses: actions/setup-python@v3
       with:
         python-version: '3.10'
         cache: 'pip'
+
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-    - name: Toot the new image
+
+    - name: Toot the trope
       env:
         TOOT_CONFIG: ${{ secrets.TOOT_CONFIG }}
       run: |-
         mkdir -p ~/.config/toot
         echo $TOOT_CONFIG > ~/.config/toot/config.json
-        toot post "test post success" > latest-toot.md
-#    - name: Configure Git for commits
-#      run: |-
-#        git config user.name "Automated"
-#        git config user.email "actions@users.noreply.github.com"
-#    - name: Commit latest-toot.md
-#      run: |-
-#        git add -A
-#        timestamp=$(date -u)
-#        git commit -m "${timestamp}" || exit 0
-#        git push
+
+    - name: Select & Print Random Trope
+      run: |
+      import random
+      def print_random_line(file_path):
+          with open(file_path, 'r') as file:
+              lines = file.readlines()  # Read all lines into a list
+          random_line = random.choice(lines).strip()  # Randomly select a line and strip newline
+          print(random_line)
