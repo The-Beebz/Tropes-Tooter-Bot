@@ -30,12 +30,3 @@ jobs:
       run: |-
         mkdir -p ~/.config/toot
         echo $TOOT_CONFIG > ~/.config/toot/config.json
-
-    - name: Select & Print Random Trope
-      run: |
-      import random
-      def print_random_line(file_path):
-          with open(file_path, 'r') as file:
-              lines = file.readlines()  # Read all lines into a list
-          random_line = random.choice(lines).strip()  # Randomly select a line and strip newline
-          print(random_line)
